@@ -2,7 +2,6 @@
   (:require [reitit.ring :as ring]
             [reitit.ring.coercion :as ring.coercion]
             [reitit.coercion.spec :as coercion.spec]
-            [duct.core.merge :refer [meta-merge]]
             [duct.core.resource]
             [integrant.core :as ig]
             [clojure.walk :as walk]))
@@ -26,7 +25,7 @@
 (defmethod ig/prep-key :duct.router/reitit [_ {:keys [routes]
                                                ::ring/keys [opts default-handlers]}]
   {:routes (walk/postwalk resolve-symbol routes)
-   ::ring/opts (meta-merge {:data default-route-opts} opts)
+   ::ring/opts (merge {:data default-route-opts} opts)
    ::ring/default-handlers (merge default-default-handlers default-handlers)})
 
 (defmethod ig/init-key :duct.router/reitit [_ {:keys [routes]
