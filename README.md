@@ -10,7 +10,7 @@ application.
 
 To install, add the following to your project `:dependencies`:
 
-    [nl.mediquest/duct.module.reitit "1.0.0"]
+    [nl.mediquest/duct.module.reitit "1.0.1"]
 
 ## Usage
 
