@@ -34,6 +34,4 @@
   [_ {:keys [routes] ::ring/keys [opts default-handlers extra-handlers]}]
   (ring/ring-handler
    (ring/router routes opts)
-   (if extra-handlers
-     (apply ring/routes (conj extra-handlers (ring/create-default-handler default-handlers)))
-     (ring/create-default-handler default-handlers))))
+   (apply ring/routes (conj extra-handlers (ring/create-default-handler default-handlers)))))
