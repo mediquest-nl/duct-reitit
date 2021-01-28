@@ -24,14 +24,14 @@
 
 (defmethod ig/prep-key :duct.router/reitit
   [_ {:keys [routes]
-      ::ring/keys [opts default-handlers extra-handlers]}]
+      ::ring/keys [opts default-handlers handlers]}]
   {:routes (walk/postwalk resolve-symbol routes)
    ::ring/opts (merge {:data default-route-opts} opts)
-   ::ring/extra-handlers extra-handlers
+   ::ring/handlers handlers
    ::ring/default-handlers (merge default-default-handlers default-handlers)})
 
 (defmethod ig/init-key :duct.router/reitit
-  [_ {:keys [routes] ::ring/keys [opts default-handlers extra-handlers]}]
+  [_ {:keys [routes] ::ring/keys [opts default-handlers handlers]}]
   (ring/ring-handler
    (ring/router routes opts)
-   (apply ring/routes (conj extra-handlers (ring/create-default-handler default-handlers)))))
+   (apply ring/routes (conj handlers (ring/create-default-handler default-handlers)))))
