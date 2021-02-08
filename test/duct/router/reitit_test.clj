@@ -55,12 +55,14 @@
       (is (= {:routes ["/"]
               ::ring/opts {:data duct.reitit/default-route-opts
                            :my-key "my-val"}
+              ::ring/handlers nil
               ::ring/default-handlers duct.reitit/default-default-handlers}
              (prep {:routes ["/"] ::ring/opts {:my-key "my-val"}}))))
 
     (testing "It can overwrite default coercers and handlers"
       (is (= {:routes ["/"]
               ::ring/opts {:data {}}
+              ::ring/handlers nil
               ::ring/default-handlers
               {:not-found :some-handler
                :not-acceptable :other-handler
