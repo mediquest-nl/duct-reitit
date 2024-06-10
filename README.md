@@ -1,3 +1,5 @@
+[![Clojars Project](https://img.shields.io/clojars/v/nl.mediquest/duct.module.reitit.svg)](https://clojars.org/nl.mediquest/duct.module.reitit)
+
 # Duct Reitit
 
 A [Duct][] component that uses [Reitit][] as the router for your
