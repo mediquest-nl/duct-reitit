@@ -1,4 +1,4 @@
-(defproject nl.mediquest/duct.module.reitit "1.0.4"
+(defproject nl.mediquest/duct.module.reitit "1.0.5"
   :description "A Reitit router for Duct"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
